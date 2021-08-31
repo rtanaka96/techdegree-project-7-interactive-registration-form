@@ -2,11 +2,11 @@
 
 An interactive registration form for Ubora Academy's Techdegree program.
 
-####Real-time error message
+### Real-time error message
 
 Validation check is run at keyup for name, email, and credit card elements.
 
-####Conditional error message
+### Conditional error message
 
 Hint text is changed based on input and error. 
 
