@@ -38,6 +38,8 @@ designSelect.addEventListener('change', function () {
             }
             for (let i = 1; i <= 3; i++) {
                 colorSelect.options[i].hidden = false;
+                //select first option
+                colorSelect.options[1].selected  = true;
             }
             break;
         case 'heart js':
@@ -47,6 +49,8 @@ designSelect.addEventListener('change', function () {
             }
             for (let i = 6; i > 3; i--) {
                 colorSelect.options[i].hidden = false;
+                //select fourth option
+                colorSelect.options[4].selected  = true;
             }
             break;
     }
@@ -73,7 +77,7 @@ document.getElementById('activities').addEventListener('change', function (e) {
         let checkbox = activityElements[i].querySelector('input');
 
         if (checkbox.getAttribute('data-day-and-time') === e.target.getAttribute('data-day-and-time')) {
-            if (e.target.name != checkbox.getAttribute('name') && checkboxChecked) {
+            if (e.target.name != checkbox.getAttribute('name') && !checkboxChecked) {
                 if (e.target.checked) {
                     checkbox.disabled = true;
                     checkbox.parentNode.classList.add('disabled');
@@ -135,7 +139,7 @@ function tagInvalid(element) {
 function checkName(name) {
     const hint = document.querySelector('#name-hint');
     let regExName = (/^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/g).test(name.value);
-    if (name.value.length > 1 && regExName) {
+    if (name.value.length > 0 && regExName) {
         tagValid(name);
         return true;
     } else {
@@ -233,6 +237,8 @@ document.querySelector('form').addEventListener('submit', function (e) {
         validateInput(checkCreditCard, ccElem, e);
     }
 });
+
+//validate form on keyup//
 
 document.querySelectorAll('form fieldset:not(.shirts):not(#activities)').forEach(function (box) {
     box.addEventListener('keyup', function (e) {
