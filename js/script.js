@@ -3,8 +3,8 @@
 //focus on name field on load
 document.getElementById('name').focus();
 
+//job role section//
 
-//job role section
 //hide by default
 const otherJobRole = document.getElementById('other-job-role');
 otherJobRole.style.display = 'none';
@@ -19,7 +19,8 @@ document.getElementById('title').addEventListener('change', function () {
 });
 
 
-//tshirt info section
+//tshirt info section//
+
 const colorSelect = document.getElementById('color');
 const designSelect = document.getElementById('design');
 
@@ -52,7 +53,8 @@ designSelect.addEventListener('change', function () {
 });
 
 
-//register for activities section
+//register for activities section//
+
 //on change, update sum to reflect cost
 const priceElement = document.getElementById('activities-cost');
 const activityElements = document.querySelectorAll('#activities label');
@@ -88,7 +90,8 @@ document.getElementById('activities').addEventListener('change', function (e) {
     priceElement.textContent = `Total: $${totalPrice}`;
 });
 
-//make focus states more obvious
+//make focus states more obvious//
+
 //handler helper fns
 const focusHandler = event => {
     event.target.className = 'focus';
@@ -115,7 +118,8 @@ document.getElementById('payment').addEventListener('change', function () {
 });
 
 
-//form validation
+//form validation//
+
 //helper fn to change parent class
 function tagValid(element) {
     element.parentNode.classList.add('valid');
@@ -156,9 +160,9 @@ function checkEmail(email) {
     } else {
         console.log('email is invalid');
         tagInvalid(email);
-        if(email.value.length < 1) {
+        if (email.value.length < 1) {
             hint.textContent = 'Email address cannot be blank';
-        } else if(!regExEmail.test(email.value)) {
+        } else if (!regExEmail.test(email.value)) {
             hint.textContent = 'Email address must follow address@domain.com format';
         }
         return false;
@@ -218,7 +222,8 @@ function validateInput(validator, input, evt) {
     }
 }
 
-//validate form on submit
+//validate form on submit//
+
 document.querySelector('form').addEventListener('submit', function (e) {
     validateInput(checkName, e.target[1], e);
     validateInput(checkEmail, e.target[2], e);
@@ -247,13 +252,4 @@ document.querySelectorAll('form fieldset:not(.shirts):not(#activities)').forEach
         }
     });
 
-    //console.log(box.getElementsByTagName('input'));
 });
-// addEventListener('keyup', function(e) {
-//     console.log(e.target.name);
-//     if(e.target.name === 'user-name') {
-//         validateInput(checkName, e.target, e);
-//     } else if(e.target.name === 'user-email') {
-//         validateInput(checkEmail, e.target, e);
-//     }
-// });
